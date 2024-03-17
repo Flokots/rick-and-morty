@@ -75,7 +75,7 @@
   display: block !important;
 }
 
-.rick-and-morty-heading-dark {
+.rick-and-morty-heading {
   font-size: 84px;
   font-weight: 700;
   background: linear-gradient(90deg, hsl(118, 95%, 45%) 30%, #0abbec 70%);
