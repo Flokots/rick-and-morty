@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
   export class HomeComponent implements OnInit{
     title = 'Home';
     http: HttpClient = inject(HttpClient);
+    characters: any = [];
 
     ngOnInit(): void {
       this.fetchCharacters();
@@ -17,7 +18,8 @@ import { HttpClient } from '@angular/common/http';
     fetchCharacters() {
       this.http.get('https://rickandmortyapi.com/api/character')
       .subscribe((response: any) => {
-        console.log(response);
+        this.characters = response.results;
+        console.log(this.characters);
       })
     }
 
