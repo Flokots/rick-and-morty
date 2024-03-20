@@ -3,7 +3,7 @@
   }
 
 .container {
-    margin-top: 5em;
+    margin-top: 2em;
     margin-bottom: 5em;
 }
 
@@ -23,3 +23,10 @@
     font-size: 18px;
     line-height: 1.8;
   }
+
+button {
+  padding: 14px 40px;
+  font-size: 20px;
+  margin-top: 0.5em;
+  align-items: flex-start;
+}

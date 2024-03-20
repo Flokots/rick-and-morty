@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     ProfileComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
