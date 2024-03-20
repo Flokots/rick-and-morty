@@ -1,21 +1,20 @@
 <section class="profile-section">
     <div class="container">
-        <div class="row">
+        <div class="row" *ngIf="selectedCharacter">
             <div class="col-md-6 profile-image">
-                <img src="https://rickandmortyapi.com/api/character/avatar/6.jpeg" alt="Rick Sanchez"
+                <img src="{{ selectedCharacter.image }}" alt="{{ selectedCharacter.name }}"
                     class="rounded-img">
             </div>
 
             <div class="col-md-6">
-                <h2 class="profile-heading">Rick Sanchez</h2>
+                <h2 class="profile-heading">{{selectedCharacter.name}}</h2>
                 <div class="profile-content">
-                    <p><b>Status: </b>Alive </p>
-                    <p><b>Species: </b>Human</p>
-                    <p><b>Type: </b> Unknown</p>
-                    <p><b>Gender: </b>Male</p>
-                    <p><b>Origin: </b>Earth</p>
-                    <p><b>Location: </b>Earth</p>
-                    <p><b>Created: </b>2017-11-04T18:48:46.250Z</p>
+                    <p><b>Status: </b>{{ selectedCharacter.status}} </p>
+                    <p><b>Species: </b>{{ selectedCharacter.species}}</p>
+                    <p><b>Gender: </b>{{ selectedCharacter.gender }}</p>
+                    <p><b>Origin: </b>{{ selectedCharacter.origin.name }}</p>
+                    <p><b>Location: </b>{{ selectedCharacter.location.name }}</p>
+                    <p><b>Created: </b>{{ selectedCharacter.created }}</p>
                 </div>
             </div>
         </div>

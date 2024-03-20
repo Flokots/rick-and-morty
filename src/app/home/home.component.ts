@@ -21,7 +21,7 @@ import { CharacterDetails } from '../interfaces/character-details';
         next: (response: any) => {
           this.characters = response.results as CharacterDetails[];
         }, 
-        error: (error) => console.log('Error fetching posts: ', error)
+        error: (error) => console.log('Error fetching characters: ', error)
       });
     }
   }
