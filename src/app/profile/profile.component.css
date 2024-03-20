@@ -1,0 +1,13 @@
+.rounded-img {
+    border-radius: 50%;
+  }
+
+.container {
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+
+.card-shadow {
+    box-shadow: 0px 5px 10px 0px #0abbec;
+    border-color: #0abbec; 
+}

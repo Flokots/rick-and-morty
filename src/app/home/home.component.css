@@ -88,4 +88,9 @@
     font-size: 1.375rem;
     font-weight: 400;
   }
+
+  .rick-and-morty-border {
+    border-color: #0abbec;
+    margin: 5px;
+  }
   
