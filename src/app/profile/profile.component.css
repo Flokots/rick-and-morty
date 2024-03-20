@@ -8,6 +8,7 @@
 }
 
 .profile-section {
+    color: black;
     padding: 50px 0;
     background-image: linear-gradient(to right, hsl(118, 95%, 45%), #0abbec );
   }

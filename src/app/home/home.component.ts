@@ -20,7 +20,6 @@ import { CharacterDetails } from '../interfaces/character-details';
       this.characterService.getCharacters().subscribe({
         next: (response: any) => {
           this.characters = response.results as CharacterDetails[];
-          console.log('Posts fetched successfully!');
         }, 
         error: (error) => console.log('Error fetching posts: ', error)
       });
