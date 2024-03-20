@@ -1,5 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CharacterService } from '../services/character.service';
 import { CharacterDetails } from '../interfaces/character-details';
 
