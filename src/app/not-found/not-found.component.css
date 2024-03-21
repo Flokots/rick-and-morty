@@ -32,7 +32,7 @@
     letter-spacing: 12vmax; 
     }
     position: relative;
-    color: #fff;
+    color: #0abbec;
     font-weight: 900;
     font-size: 20.4em;
     display: block;
@@ -61,7 +61,7 @@
    }
   
    button {
-        background-color: #f96e4d;
+        background-color: #0abbec;
       border: 0;
       padding: 11px 22px;
       border-radius: 50px;

@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CharacterService } from '../services/character.service';
 import { CharacterDetails, Info } from '../interfaces/character-details';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,18 +14,24 @@ export class HomeComponent implements OnInit {
   searchCharacters: CharacterDetails[] = [];
   info: Info;
   searchString: string;
+  router: Router = inject(Router);
+  errorMessage: string;
 
   private characterService = inject(CharacterService);
   activeRoute: ActivatedRoute = inject(ActivatedRoute);
 
   ngOnInit(): void {
-    this.searchString = this.activeRoute.snapshot.queryParams['search'];
+    this.loadCharacters();
+    // this.searchString = this.activeRoute.snapshot.queryParams['search'];
+    this.activeRoute.queryParams.subscribe((data) => {
+      this.searchString = data['search'];
 
-    if (this.searchString === undefined || this.searchString === '') {
-      this.loadCharacters();
-    } else {
-      this.loadSearchCharacters();
-    }
+      if (this.searchString === undefined || this.searchString === '' || this.searchString === null) {
+        this.loadCharacters();
+      } else {
+        this.loadSearchCharacters();
+      }
+    })
   }
 
   loadCharacters() {
@@ -34,7 +40,10 @@ export class HomeComponent implements OnInit {
         this.characters = response.results as CharacterDetails[];
         this.info = response.info as Info;
       },
-      error: (error) => console.log('Error fetching characters: ', error),
+      error: (error) => {
+        console.log('Error fetching characters: ', error);
+        this.characters = [];
+      },
     });
   }
 
@@ -43,10 +52,17 @@ export class HomeComponent implements OnInit {
       next: (response: any) => {
         this.characters = response.results as CharacterDetails[];
         this.info = response.info as Info;
-        console.log(this.characters);
       },
-      error: (error) =>
-        console.log('Error fetching character details: ', error),
+      error: (error) => {
+        this.errorMessage = error.error.error;
+        this.characters = [];
+        console.log('Error fetching character details: ', error);
+      }
+      
     });
+  }
+
+  onSearchClicked(value: string) {
+    this.router.navigate(['/home'], {queryParams: {search: value}})
   }
 }
