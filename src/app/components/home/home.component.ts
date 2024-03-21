@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CharacterService } from '../services/character.service';
-import { CharacterDetails, Info } from '../interfaces/character-details';
+import { CharacterService } from '../../services/character.service';
+import { CharacterDetails, Info } from '../../interfaces/character-details';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
