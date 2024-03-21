@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,10 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     AppRoutingModule,
     HttpClientModule,
   ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+],
   providers: [
     provideHttpClient(withFetch()),
     provideClientHydration()
