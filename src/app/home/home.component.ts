@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCharacters();
-    // this.searchString = this.activeRoute.snapshot.queryParams['search'];
     this.activeRoute.queryParams.subscribe((data) => {
       this.searchString = data['search'];
 
@@ -58,11 +57,11 @@ export class HomeComponent implements OnInit {
         this.characters = [];
         console.log('Error fetching character details: ', error);
       }
-      
+
     });
   }
 
   onSearchClicked(value: string) {
-    this.router.navigate(['/home'], {queryParams: {search: value}})
+    this.router.navigate(['/home'], { queryParams: { search: value } })
   }
 }

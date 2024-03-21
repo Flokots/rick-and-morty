@@ -10,8 +10,8 @@ describe('NotFoundComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [NotFoundComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(NotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

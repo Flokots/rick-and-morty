@@ -13,15 +13,15 @@ export class CharacterService {
 
   constructor() { }
 
-  getCharacter(id: number) : Observable<CharacterDetails> {
+  getCharacter(id: number): Observable<CharacterDetails> {
     return this.http.get<CharacterDetails>(`${BASE_URL}/${id}`);
   }
 
-  getCharacters() : Observable<CharacterDetails> {
+  getCharacters(): Observable<CharacterDetails> {
     return this.http.get<CharacterDetails>(`${BASE_URL}`);
   }
 
-  getSearchCharacter(name: string) : Observable<CharacterDetails> {
+  getSearchCharacter(name: string): Observable<CharacterDetails> {
     return this.http.get<CharacterDetails>(`${SEARCH_URL}${name}`);
   }
 

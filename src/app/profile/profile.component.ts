@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
     this.characterService.getCharacter(this.characterId).subscribe({
       next: (response: any) => {
         this.selectedCharacter = response as CharacterDetails;
-      }, 
+      },
       error: (error) => console.log('Error fetching character details: ', error)
     });
   }
