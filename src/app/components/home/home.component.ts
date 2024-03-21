@@ -10,18 +10,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   title = 'Home';
+
+  info: Info;
   characters: CharacterDetails[] = [];
   searchCharacters: CharacterDetails[] = [];
-  info: Info;
+  
   searchString: string;
-  router: Router = inject(Router);
   errorMessage: string;
+  currentPage: number = 1;
+  totalPages: number = 0; 
 
+  router: Router = inject(Router);
   private characterService = inject(CharacterService);
   activeRoute: ActivatedRoute = inject(ActivatedRoute);
 
   ngOnInit(): void {
-    this.loadCharacters();
+    this.loadPaginatedCharacters();
     this.activeRoute.queryParams.subscribe((data) => {
       this.searchString = data['search'];
 
@@ -38,12 +42,27 @@ export class HomeComponent implements OnInit {
       next: (response: any) => {
         this.characters = response.results as CharacterDetails[];
         this.info = response.info as Info;
+        this.totalPages = this.info.pages;
       },
       error: (error) => {
         console.log('Error fetching characters: ', error);
         this.characters = [];
       },
     });
+  }
+
+  loadPaginatedCharacters() {
+    this.characterService.getPaginatedCharacters(this.currentPage).subscribe({
+      next: (response: any) => {
+        this.characters = response.results as CharacterDetails[];
+        this.info = response.info as Info;
+        this.totalPages = this.info.pages;
+      },
+      error: (error) => {
+        console.log('Error fetching characters: ', error);
+        this.characters = [];
+      },
+    })
   }
 
   loadSearchCharacters() {
@@ -63,5 +82,29 @@ export class HomeComponent implements OnInit {
 
   onSearchClicked(value: string) {
     this.router.navigate(['/home'], { queryParams: { search: value } })
+  }
+
+  firstPage() {
+    this.currentPage = 1;
+    this.loadPaginatedCharacters();
+  }
+
+  lastPage() {
+    this.currentPage = this.totalPages;
+    this.loadPaginatedCharacters();
+  }
+
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.loadPaginatedCharacters();
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.loadPaginatedCharacters()
+    }
   }
 }

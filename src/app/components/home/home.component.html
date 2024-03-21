@@ -43,22 +43,18 @@
                 }
             </div>
 
-            <nav aria-label="" class="pagination-spacing">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item"><a class="page-link" href="#">6</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
+            <div class="pagination justify-content-center pagination-spacing">
+                <button (click)="firstPage()" [disabled]="currentPage === 1"
+                    class="btn btn-outline-info page-button">First</button>
+                <button (click)="previousPage()" [disabled]="currentPage === 1"
+                    class="btn btn-outline-info page-button">Previous</button>
+                <span class="pagination-text"> Page {{ currentPage }} of {{ totalPages }} </span>
+                <button (click)="nextPage()" [disabled]="currentPage === totalPages"
+                    class="btn btn-outline-info page-button">Next</button>
+                <button (click)="lastPage()" [disabled]="currentPage === totalPages"
+                    class="btn btn-outline-info page-button">Last</button>
+            </div>
+
         </div>
     </div>
 </main>
