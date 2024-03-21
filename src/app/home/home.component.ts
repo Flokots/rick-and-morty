@@ -12,14 +12,13 @@ export class HomeComponent implements OnInit {
   private characterService = inject(CharacterService);
   characters: CharacterDetails[] = [];
   info: Info;
-  currentPage: number = 1;
 
   ngOnInit(): void {
-    this.loadCharacters(this.currentPage);
+    this.loadCharacters();
   }
 
-  loadCharacters(page: number) {
-    this.characterService.getCharacters(this.currentPage).subscribe({
+  loadCharacters() {
+    this.characterService.getCharacters().subscribe({
       next: (response: any) => {
         this.characters = response.results as CharacterDetails[];
         this.info = response.info as Info;

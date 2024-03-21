@@ -16,8 +16,8 @@ export class CharacterService {
     return this.http.get<CharacterDetails>(`${BASE_URL}/${id}`);
   }
 
-  getCharacters(page: number) : Observable<CharacterDetails> {
-    return this.http.get<CharacterDetails>(`${BASE_URL}?page=${page}`);
+  getCharacters() : Observable<CharacterDetails> {
+    return this.http.get<CharacterDetails>(`${BASE_URL}`);
   }
-  
+
 }
