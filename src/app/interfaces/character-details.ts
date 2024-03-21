@@ -14,12 +14,18 @@ export interface CharacterDetails {
 }
 
 export interface Origin {
-    name: string
-    url: string
-  }
-  
-  export interface Location {
-    name: string
-    url: string
-  }
-  
+  name: string
+  url: string
+}
+
+export interface Location {
+  name: string
+  url: string
+}
+
+export interface Info {
+  count: number
+  pages: number
+  next: string
+  prev: string
+}

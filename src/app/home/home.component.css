@@ -16,3 +16,8 @@
   border-color: #0abbec;
   margin: 5px;
 }
+
+.pagination-spacing {
+  margin-top: 3em; 
+  margin-bottom: 2em;
+}

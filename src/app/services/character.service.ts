@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { CharacterDetails } from '../interfaces/character-details';
+import { CharacterDetails, Info } from '../interfaces/character-details';
 import { Observable } from 'rxjs';
 
 const BASE_URL = 'https://rickandmortyapi.com/api/character';
@@ -12,11 +12,12 @@ export class CharacterService {
 
   constructor() { }
 
-  getCharacter(id: number): Observable<any> {
-    return this.http.get(`${BASE_URL}/${id}`);
+  getCharacter(id: number) : Observable<CharacterDetails> {
+    return this.http.get<CharacterDetails>(`${BASE_URL}/${id}`);
   }
 
-  getCharacters() : Observable<CharacterDetails> {
-    return this.http.get<CharacterDetails>(BASE_URL);
+  getCharacters(page: number) : Observable<CharacterDetails> {
+    return this.http.get<CharacterDetails>(`${BASE_URL}?page=${page}`);
   }
+  
 }
