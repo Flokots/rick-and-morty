@@ -4,6 +4,7 @@ import { CharacterDetails, Info } from '../interfaces/character-details';
 import { Observable } from 'rxjs';
 
 const BASE_URL = 'https://rickandmortyapi.com/api/character';
+const SEARCH_URL = 'https://rickandmortyapi.com/api/character/?name='
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +19,10 @@ export class CharacterService {
 
   getCharacters() : Observable<CharacterDetails> {
     return this.http.get<CharacterDetails>(`${BASE_URL}`);
+  }
+
+  getSearchCharacter(name: string) : Observable<CharacterDetails> {
+    return this.http.get<CharacterDetails>(`${SEARCH_URL}${name}`);
   }
 
 }
