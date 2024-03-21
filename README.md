@@ -1,6 +1,30 @@
-# RickAndMorty
+# The Rick And Morty App
+A web app for displaying character profiles from the show Rick and Morty.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+
+## Author
+[Florence Kotohoyoh](https://github.com/Flokots)
+
+## Demo 
+[Rick and Mory](https://flokots.github.io/rick-and-morty/)
+
+### Task
+1. Create a Single Page App that will have two pages: Home and Profile
+2. Using the Rick & Morty API’s Character endpoint (https://rickandmortyapi.com/), create a
+table on the Home page with the following columns: Avatar, Name, Species, Status.
+Generate data in the table based on the received response.
+3. When the user clicks on one of the names, navigate to the Profile page that will show info
+about the character. Data should come from the API endpoint.
+4. The character profile page should have a Back button that will navigate back to the main
+table.
+5. Use pagination in the main table.
+6. Create an input field on the Home page to search among character names. It should have
+an onChange event, and you should only show rows that contain the searched string.
+
+### Project Setup Instructions
+1. Fork this repository
+2. Clone the forked repository in your local computer.
 
 ## Development server
 
@@ -22,7 +46,20 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+### Future Plans 
+Write more comprehensive tests. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# rick-and-morty
+### Contributions
+Should you notice any bug or want to add a feature, contributions are highly welcome. Feel free to: 
+
+1. Fork this repository.
+2. Clone the forked repository in your local computer. 
+3. Make changes.
+4. Create a pull request.
+
+### Contact
+florencekotohoyoh@gmail.com
+
+### License
+[MIT](https://choosealicense.com/licenses/mit/)
+Copyright (c) 2024
