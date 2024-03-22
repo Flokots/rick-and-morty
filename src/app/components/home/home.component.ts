@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
   totalPages: number = 0; 
 
   router: Router = inject(Router);
-  private characterService = inject(CharacterService);
   activeRoute: ActivatedRoute = inject(ActivatedRoute);
+  private characterService = inject(CharacterService);
 
   ngOnInit(): void {
     this.loadPaginatedCharacters();
