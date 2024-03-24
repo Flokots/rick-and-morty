@@ -29,8 +29,10 @@
                             <p class="card-text link-warning link-opacity-75-hover"
                                 routerLink="/profile/{{ character.id }}" data-testid="character-name"><b>Name: </b>{{
                                 character.name }}</p>
-                            <p class="card-text" data-testid="character-species"><b>Species: </b>{{ character.species }}</p>
-                            <p class="card-text" data-testid="character-status"><b>Status: </b>{{ character.status }}</p>
+                            <p class="card-text" data-testid="character-species"><b>Species: </b>{{ character.species }}
+                            </p>
+                            <p class="card-text" data-testid="character-status"><b>Status: </b>{{ character.status }}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -45,15 +47,16 @@
             </div>
 
             <div class="pagination justify-content-center pagination-spacing" data-testid="pagination">
-                <button (click)="firstPage()" [disabled]="currentPage === 1"
-                    class="btn btn-outline-info page-button">First</button>
-                <button (click)="previousPage()" [disabled]="currentPage === 1"
-                    class="btn btn-outline-info page-button">Previous</button>
-                <span class="pagination-text"> Page {{ currentPage }} of {{ totalPages }} </span>
+                <button (click)="firstPage()" [disabled]="currentPage === 1" class="btn btn-outline-info page-button"
+                    data-testid="first-page-button">First</button>
+                <button (click)="previousPage()" [disabled]="currentPage === 1" class="btn btn-outline-info page-button"
+                    data-testid="previous-page-button">Previous</button>
+                <span class="pagination-text" data-testid="pagination-text"> Page {{ currentPage }} of {{ totalPages }}
+                </span>
                 <button (click)="nextPage()" [disabled]="currentPage === totalPages"
-                    class="btn btn-outline-info page-button">Next</button>
+                    class="btn btn-outline-info page-button" data-testid="next-page-button">Next</button>
                 <button (click)="lastPage()" [disabled]="currentPage === totalPages"
-                    class="btn btn-outline-info page-button">Last</button>
+                    class="btn btn-outline-info page-button" data-testid="last-page-button">Last</button>
             </div>
 
         </div>
