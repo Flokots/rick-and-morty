@@ -23,4 +23,21 @@ describe('Search Function', () => {
             .get('[data-testid="error-text"]')
             .contains('There is nothing here!')
     })
+
+    it('Navigates to the profile page of the search result', () => {
+        cy.get('[data-testid="search-bar"]')
+            .type('rick')
+            .get('[data-testid="search-button"]')
+            .click()
+            .get('[data-testid="character-name"]')
+            .contains('Rick Sanchez')
+            .click()
+            
+        cy.url()
+          .should('contain', '/profile/1')
+
+        cy.get('[data-testid="profile-heading"]')
+          .should('contain', 'Rick Sanchez')
+
+    })
 })
