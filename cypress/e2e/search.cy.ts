@@ -1,4 +1,7 @@
 describe('Search Function', () => {
+    beforeEach(() => {
+        cy.visit('/')
+    })
     it('Displays search results', () => {
         cy.get('[data-testid="search-bar"]')
             .type('rick')
