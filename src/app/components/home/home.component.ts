@@ -70,6 +70,7 @@ export class HomeComponent implements OnInit {
       next: (response: any) => {
         this.characters = response.results as CharacterDetails[];
         this.info = response.info as Info;
+        this.totalPages = this.info.pages;
       },
       error: (error) => {
         this.errorMessage = error.error.error;
